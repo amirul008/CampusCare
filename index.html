@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#173b63">
+  <title>CampusCare — Pelaporan Fasilitas Kampus</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="loginView" class="login-shell">
+    <div class="login-art">
+      <div class="brand brand-light"><span class="brand-mark">CC</span><span>CampusCare</span></div>
+      <div class="login-message">
+        <span class="eyebrow">LAYANAN FASILITAS KAMPUS</span>
+        <h1>Fasilitas terjaga,<br><em>aktivitas lancar.</em></h1>
+        <p>Laporkan kerusakan fasilitas kampus dan pantau proses penanganannya dalam satu tempat.</p>
+        <div class="login-points"><span>✓ Pelaporan mudah</span><span>✓ Status transparan</span><span>✓ Tindak lanjut tercatat</span></div>
+      </div>
+      <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+    </div>
+    <div class="login-panel">
+      <div class="mobile-brand brand"><span class="brand-mark">CC</span><span>CampusCare</span></div>
+      <div class="login-card">
+        <span class="eyebrow">SELAMAT DATANG</span>
+        <h2>Masuk ke CampusCare</h2>
+        <p class="muted">Gunakan akun demo untuk mencoba sistem.</p>
+        <form id="loginForm">
+          <label for="loginEmail">Email</label>
+          <input id="loginEmail" type="email" autocomplete="username" value="pelapor@campuscare.id" required>
+          <label for="loginPassword">Kata sandi</label>
+          <input id="loginPassword" type="password" autocomplete="current-password" value="campus123" required>
+          <button class="btn btn-primary btn-full" type="submit">Masuk <span>→</span></button>
+          <p id="loginError" class="form-error"></p>
+        </form>
+        <div class="demo-accounts">
+          <strong>Akun demonstrasi</strong>
+          <button type="button" class="demo-account" data-email="pelapor@campuscare.id"><span>Pelapor</span><small>pelapor@campuscare.id</small></button>
+          <button type="button" class="demo-account" data-email="petugas@campuscare.id"><span>Petugas</span><small>petugas@campuscare.id</small></button>
+          <button type="button" class="demo-account" data-email="admin@campuscare.id"><span>Administrator</span><small>admin@campuscare.id</small></button>
+          <small class="muted">Kata sandi seluruh akun: <b>campus123</b></small>
+        </div>
+      </div>
+      <p class="login-footer">CampusCare · Prototipe akademik</p>
+    </div>
+  </div>
+
+  <div id="appView" class="app-shell hidden">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand"><span class="brand-mark">CC</span><span>CampusCare</span></div>
+      <div class="workspace-label">WORKSPACE KAMPUS</div>
+      <nav class="side-nav">
+        <button class="nav-link active" data-page="dashboard"><span class="nav-icon">▦</span> Dashboard</button>
+        <button class="nav-link" data-page="reports"><span class="nav-icon">▤</span> Semua Laporan <span id="navReportCount" class="nav-count">0</span></button>
+        <button class="nav-link" data-page="new-report" id="navNewReport"><span class="nav-icon">＋</span> Buat Laporan</button>
+        <div class="nav-divider"></div>
+        <button class="nav-link" data-page="categories" data-role="admin"><span class="nav-icon">▧</span> Kategori</button>
+        <button class="nav-link" data-page="users" data-role="admin"><span class="nav-icon">♙</span> Pengguna</button>
+        <button class="nav-link" data-page="activity" data-role="admin"><span class="nav-icon">◷</span> Aktivitas Sistem</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="help-card"><div class="help-icon">?</div><strong>Butuh bantuan?</strong><p>Hubungi bagian layanan fasilitas kampus.</p></div>
+        <div class="sidebar-user"><div class="avatar" id="sidebarAvatar">P</div><div class="user-mini"><strong id="sidebarName">Pengguna</strong><small id="sidebarRole">Pelapor</small></div><button id="logoutBtn" class="logout-icon" title="Keluar">↗</button></div>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <button id="menuToggle" class="icon-btn mobile-menu" aria-label="Buka menu">☰</button>
+        <div class="breadcrumb"><span>Workspace</span><b>/</b><strong id="breadcrumbCurrent">Dashboard</strong></div>
+        <div class="topbar-right">
+          <span class="today-label" id="todayLabel"></span>
+          <div class="top-user"><div class="avatar avatar-small" id="topAvatar">P</div><span id="topName">Pengguna</span></div>
+        </div>
+      </header>
+      <div id="pageContent" class="page-content"></div>
+      <footer class="app-footer">© 2026 CampusCare <span>·</span> Sistem Pelaporan dan Penanganan Fasilitas Kampus</footer>
+    </main>
+  </div>
+
+  <div id="modalRoot"></div>
+  <div id="toastRoot" class="toast-root" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
